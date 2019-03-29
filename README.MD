@@ -1,13 +1,11 @@
 Change Evidence
 ==============
 
-![Last tested in Nuix 7.6](https://img.shields.io/badge/Nuix-7.6-green.svg)
+![Last tested in Nuix 7.8](https://img.shields.io/badge/Nuix-7.8-green.svg)
 
 View the GitHub project [here](https://github.com/Nuix/Change-Evidence) or download the latest release [here](https://github.com/Nuix/Change-Evidence/releases).
 
 # Overview
-
-**Written By:** mrk
 
 This script finds the evidence XML files associated with a case's evidence containers and allows the user to set new evidence paths. Useful when drive mappings change or data is moved.
 
@@ -30,14 +28,6 @@ This script will:
 - Confirm old and new paths.
 - Update evidence XML file.
 - Note that the case must be closed and re-opened for changes to take effect.
-
-## Cloning this Repository
-
-This script relies on code from [Nx](https://github.com/Nuix/Nx) to present a settings dialog and progress dialog.  This JAR file is not included in the repository (although it is included in release downloads).  If you clone this repository, you will also want to obtain a copy of Nx.jar by either:
-1. Building it from [the source](https://github.com/Nuix/Nx)
-2. Downloading an already built JAR file from the [Nx releases](https://github.com/Nuix/Nx/releases)
-
-Once you have a copy of Nx.jar, make sure to include it in the same directory as the scripts.
 
 # License
 
