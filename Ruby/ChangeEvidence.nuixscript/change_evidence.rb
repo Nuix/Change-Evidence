@@ -104,6 +104,7 @@ begin
   if !$current_case.nil?
     xmls = get_xmls($current_case)
     xmls.each do |evidence_xml, xml_doc|
+      xml_doc.context[:attribute_quote] = :quote
       name = xml_doc.elements['evidence/name'].get_text.to_s
       o_location = xml_doc.elements['evidence/data-roots/data-root/file location'].attributes['location']
       next unless JOptionPane.showConfirmDialog(nil, "Evidence location: #{o_location}\n" + 'Do you want to change this location?', name, JOptionPane::YES_NO_OPTION) == JOptionPane::YES_OPTION
@@ -117,7 +118,9 @@ begin
         msg = "Old: #{o_location}\n" + "New: #{location}\n"
         if JOptionPane.showConfirmDialog(nil, msg + "Update #{evidence_xml}?", name, JOptionPane::YES_NO_OPTION) == JOptionPane::YES_OPTION
           xml_doc.elements['evidence/data-roots/data-root/file location'].attributes['location'] = location
-          IO.write(evidence_xml, xml_doc)
+          output = ""
+          xml_doc.write(:output => output, :ie_hack => true)
+          IO.write(evidence_xml, output)
           JOptionPane.showMessageDialog(nil, "Updated #{name}\n" + msg + 'Close and re-open your case for the changes to take effect.')
         end
       else
